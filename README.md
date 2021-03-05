@@ -19,9 +19,8 @@ Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o 
 <br>
 
 <p align="center">
-  <img alt="focus.challenger" src="description.png" width="100%">
-  <img alt="focus.challenger.desafio" src ="desafio.png" width = "100%">
-  <img alt="focus.challenger.levelUp" src ="levelUp.png" width = "100%">
+  <img alt="workanalove" src="description.jpeg" width="100%">
+ 
 </p>
 
 ## 🚀 Tecnologias
