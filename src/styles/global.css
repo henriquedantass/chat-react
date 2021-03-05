@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,input,textarea,button,span {
+  font: 400 1.2rem "Inter", sans-serif;
+}
+
+body {
+  background-color:  #f8f9fa;
+}
+
+html {
+  font-size: 97%;
+}
+
+
+@media (max-width:600px) {
+  html {
+    font-size: 80%;
+  }
+}
+

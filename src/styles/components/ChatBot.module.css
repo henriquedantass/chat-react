@@ -1,0 +1,55 @@
+.chatContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f8f9fa;
+    
+}
+
+
+.chatBotMensage img {
+    width: 8rem;
+    height: 8rem;
+    max-width: 600px;
+    
+}
+
+.chatBotMensage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.chatBotMensage span {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 25px;
+    font-weight: bold;
+    width: 500px;
+    margin-left: 20px;
+}
+
+.chatBotMensageField {
+    border: 0;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 25px;
+}
+
+
+.chatBotMensageForm button {
+    width: 30px;
+    height: 30px;
+    border: 0;
+    background-color: #f8f9fa;
+    margin-left: 1rem;
+}
+
+@media (max-width:700px) {
+
+    .chatContainer {
+        width: 800px;
+    }
+
+}
