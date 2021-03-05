@@ -1,5 +1,5 @@
 ## Iniciando LocalHost
-First, run the development server:
+Primeiro, inicie o servidor com os seguintes comandos em seu terminal:
 
 ```bash
 npm run dev
@@ -13,11 +13,7 @@ Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o 
 { Workana Chat }
 </h1>
 
-<p align="center">
-  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-</p>
+
 
 
 <br>
