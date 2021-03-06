@@ -2,6 +2,7 @@ import styles from '../styles/components/ChatBot.module.css';
 import {Formik, Field, Form} from 'formik';
 import { useState, useContext } from 'react';
 import {UserContext} from '../contexts/UserContext';
+import * as yup from 'yup';
 
 export function ChatBotName () {
 
@@ -12,7 +13,11 @@ export function ChatBotName () {
     function onSubmit (values, action) {
 
         setUserName (name);
+
     }
+
+    
+ 
 
     return (
         
@@ -29,6 +34,7 @@ export function ChatBotName () {
 
             <div className = {styles.chatUserMensage}>
                 <Formik
+
                     initialValues= {{}}
                     onSubmit = {onSubmit} 
                     render = {({values}) => (

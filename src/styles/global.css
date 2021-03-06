@@ -9,7 +9,7 @@ body,input,textarea,button,span {
 }
 
 body {
-  background-color:  #f8f9fa;
+  background-color:  lavender;
 }
 
 html {
@@ -23,3 +23,8 @@ html {
   }
 }
 
+@media (max-width:400px) {
+  html{
+    font-size: 1.3rem;
+  }
+}

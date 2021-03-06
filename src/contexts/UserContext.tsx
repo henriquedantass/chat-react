@@ -3,6 +3,7 @@ import { string } from 'yup/lib/locale';
 import { ChatBotData } from '../components/ChaBotData';
 import { ChatBotAdress } from '../components/ChatBotAddres';
 import { ChatBotEmail } from '../components/ChatBotEmail';
+import { ChatBotEnd } from '../components/ChatBotEnd';
 
 interface UserContextData {
 
@@ -17,6 +18,7 @@ interface UserContextData {
     nextChatBot: () => void;
     nextChatBotAdress: () => void;
     nextChatBotDate: () => void;
+    nextChatBotEmail: () => void;
 }
 
 interface UserProviderProps {
@@ -42,7 +44,6 @@ export function UserContextProvider ({children, ...rest}: UserProviderProps) {
     function setUserName (name:string) {
         setName (name);
     }
-
     function setUserEmail (email:string) {
         setEmail (email);
     }
@@ -67,15 +68,20 @@ export function UserContextProvider ({children, ...rest}: UserProviderProps) {
         setIsDateUser (true);
     }
 
+    function nextChatBotEmail () {
+        setIsEmailUser (true);
+    }
+
     return (
 
-        <UserContext.Provider value={{name,email,data,adress,setUserName,setUserEmail,setUserAdress,setUserData, nextChatBot, nextChatBotAdress,nextChatBotDate}}>
+        <UserContext.Provider value={{name,email,data,adress,setUserName,setUserEmail,setUserAdress,setUserData, nextChatBot, nextChatBotAdress,nextChatBotDate, nextChatBotEmail}}>
 
             {children}
 
         {isNameUser && <ChatBotAdress/>}
         {isAdressUser && <ChatBotData/>}
         {isDateUser && <ChatBotEmail/>}
+        {isEmailUser && <ChatBotEnd/>}
         </UserContext.Provider>
 
 

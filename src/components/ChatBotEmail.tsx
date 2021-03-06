@@ -1,6 +1,8 @@
 import styles from '../styles/components/ChatBot.module.css'
 import {Formik, Field, Form} from 'formik';
-import * as yup from 'yup';
+import { useState, useContext } from 'react';
+import {UserContext} from '../contexts/UserContext';
+
 
 
 export function ChatBotEmail () {
@@ -11,14 +13,7 @@ export function ChatBotEmail () {
         
     }
 
-    const emailSchema = yup.object().shape({
-
-        email: yup
-            .string()
-            .email()
-            .required(),
-
-    })
+    const {nextChatBotEmail } = useContext(UserContext);
 
 
     return (
@@ -33,15 +28,13 @@ export function ChatBotEmail () {
 
             <div className = {styles.chatUserMensage}>
                 <Formik
-                    initialValues = {{email:""}}
-                    validationSchema = {emailSchema}
-                    
+                    initialValues = {{email:""}}            
                     onSubmit = {onSubmit} 
                     render = {({values}) => (
 
                         <Form className = {styles.chatBotMensageForm}>
                         <Field name="email" type="email" placeholder= "Digite seu email" className = {styles.chatBotMensageField}/>
-                        <button type="submit">  ✅ </button>
+                        <button type="submit" onClick={nextChatBotEmail}>  ✅ </button>
                   
                         </Form>        
                     )}
