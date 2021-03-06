@@ -9,6 +9,11 @@ yarn dev
 
 Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
 
+## Deploy do app 
+
+https://chat-workana-kyqlze3qj-henriquedantass.vercel.app/
+
+
 <h1 align="center">
 { Workana Chat }
 </h1>
