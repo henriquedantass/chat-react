@@ -1,14 +1,18 @@
 import styles from '../styles/components/ChatBot.module.css';
 import {Formik, Field, Form} from 'formik';
-import { useState, useContext } from 'react';
+import { useContext, useState } from 'react';
 import {UserContext} from '../contexts/UserContext';
 
 export function ChatBotData () {
 
     const { nextChatBotDate } = useContext(UserContext);
-
-    function onSubmit (values, action) {
-        console.log('Submit', values)
+    const [data, setData] = useState("");
+    const { setUserData , nextChatBotAdress } = useContext(UserContext);
+    
+    function onSubmit () {
+        
+        setUserData(data)
+        console.log(data)
         
     }
 
@@ -34,7 +38,13 @@ export function ChatBotData () {
                     render = {({values}) => (
 
                         <Form className = {styles.chatBotMensageForm}>
-                        <Field name="date" type="date" placeholder= "dia/mes/ano" className = {styles.chatBotMensageField}/>
+                        <Field 
+                        name="date" 
+                        type="date"
+                        placeholder= "dia/mes/ano" 
+                        onChange= {(event) => { setData(event.target.value) }}
+                        value= {data}
+                        className = {styles.chatBotMensageField}/>
                         <button type="submit" onClick={nextChatBotDate}>  ✅ </button>
                         </Form>        
                     )}

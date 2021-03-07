@@ -1,5 +1,4 @@
 import { createContext, ReactNode, useState } from 'react';
-import { string } from 'yup/lib/locale';
 import { ChatBotData } from '../components/ChaBotData';
 import { ChatBotAdress } from '../components/ChatBotAddres';
 import { ChatBotEmail } from '../components/ChatBotEmail';

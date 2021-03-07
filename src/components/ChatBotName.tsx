@@ -2,18 +2,21 @@ import styles from '../styles/components/ChatBot.module.css';
 import {Formik, Field, Form} from 'formik';
 import { useState, useContext } from 'react';
 import {UserContext} from '../contexts/UserContext';
-import * as yup from 'yup';
+import * as yup from 'Yup';
 
 export function ChatBotName () {
 
+   
     const [name, setName] = useState();
 
     const {setUserName , nextChatBot } = useContext(UserContext);
 
-    function onSubmit (values, action) {
+    
 
+    function onSubmit () {
+        console.log(name)
         setUserName (name);
-
+        
     }
 
     
@@ -34,15 +37,16 @@ export function ChatBotName () {
 
             <div className = {styles.chatUserMensage}>
                 <Formik
-
-                    initialValues= {{}}
+                    
+                    initialValues= {{name: ''}}
                     onSubmit = {onSubmit} 
-                    render = {({values}) => (
+                    render = {({}) => (
 
                         <Form className = {styles.chatBotMensageForm}>
                         <Field 
                         name="name" 
                         type="text" 
+                        required
                         placeholder= "Digite seu nome" 
                         className = {styles.chatBotMensageField} 
                         onChange= {(event) => { setName(event.target.value) }}

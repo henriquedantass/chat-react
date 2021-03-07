@@ -1,19 +1,25 @@
 import styles from '../styles/components/ChatBot.module.css'
 import {Formik, Field, Form} from 'formik';
-import { useState, useContext } from 'react';
+import { useContext, useState } from 'react';
 import {UserContext} from '../contexts/UserContext';
 
 
 
 export function ChatBotEmail () {
 
- 
-    function onSubmit (values, action) {
-        console.log('Submit', values)
+    
+    const [email, setEmail] = useState("");
+
+    const { setUserEmail , nextChatBotEmail } = useContext(UserContext);
+
+    function onSubmit () {
+       
+        setUserEmail(email)
+        console.log(email)
         
     }
 
-    const {nextChatBotEmail } = useContext(UserContext);
+  
 
 
     return (
@@ -33,7 +39,13 @@ export function ChatBotEmail () {
                     render = {({values}) => (
 
                         <Form className = {styles.chatBotMensageForm}>
-                        <Field name="email" type="email" placeholder= "Digite seu email" className = {styles.chatBotMensageField}/>
+                        <Field 
+                        name="email" 
+                        type="email" 
+                        placeholder= "Digite seu email" 
+                        onChange= {(event) => { setEmail(event.target.value) }}
+                        value={email}
+                        className = {styles.chatBotMensageField}/>
                         <button type="submit" onClick={nextChatBotEmail}>  ✅ </button>
                   
                         </Form>        

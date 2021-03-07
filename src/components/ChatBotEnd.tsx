@@ -1,11 +1,17 @@
 import styles from '../styles/components/ChatBot.module.css';
 import { Formik, Field, Form } from 'formik';
-
+import { useContext } from 'react';
+import { UserContext } from '../contexts/UserContext';
+import axios from 'axios';
 
 export function ChatBotEnd() {
 
-    function onSubmit (values, action) {
-        console.log(values)
+    const {name,email,data,adress} = useContext(UserContext);
+  
+    async function onSubmit () {
+        await axios.post("https://60452e94c0194f00170bca91.mockapi.io/users", { name,email,address:adress, date:data})
+        console.log(name,email,data,adress)
+
     }
 
     return (
@@ -19,22 +25,24 @@ export function ChatBotEnd() {
                 chegar aqui. Nós
                 agradecemos!  <br/>
                 <br/>
+
                 1 - ruim <br/>
                 2 - regular <br/>
                 3 - bom <br/>
                 4 - ótimo <br/> 
-                5 - sensacional                           
+                5 - sensacional   
+
                 </span>
             </div>
 
             <div className={styles.chatUserMensage}>
                 <Formik
-                    initialValues={{ data: "" }}
+                    initialValues={{ media: "" }}
                     onSubmit={onSubmit}
                     render={({ values }) => (
 
                         <Form className={styles.chatBotMensageForm}>
-                            <Field name="data" type="number"  className={styles.chatBotMensageField}  maxlength="1" />
+                            <Field name="media" type="number"  className={styles.chatBotMensageField}  />
                             <button type="submit">📨</button>    
                         </Form>
                         
