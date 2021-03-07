@@ -2,7 +2,7 @@ import styles from '../styles/components/ChatBot.module.css';
 import {Formik, Field, Form} from 'formik';
 import { useState, useContext } from 'react';
 import {UserContext} from '../contexts/UserContext';
-import * as yup from 'Yup';
+
 
 export function ChatBotName () {
 
@@ -18,9 +18,6 @@ export function ChatBotName () {
         setUserName (name);
         
     }
-
-    
- 
 
     return (
         
