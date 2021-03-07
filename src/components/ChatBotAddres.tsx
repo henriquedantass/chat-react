@@ -3,6 +3,7 @@ import {Formik, Field, Form} from 'formik';
 import { useContext, useState } from 'react';
 import {UserContext} from '../contexts/UserContext';
 
+
 export function ChatBotAdress () {
 
     const {name} = useContext(UserContext);
@@ -36,14 +37,16 @@ export function ChatBotAdress () {
 
                         <Form className = {styles.chatBotMensageForm}>
                         <Field 
-                        
+
                         value= {adress}
-                        name="adress"
-                        type="text" 
+                        name="adress" 
                         placeholder= "Cidade e estado"
                         onChange= {(event) => { setAdress(event.target.value) }}
-                        className = {styles.chatBotMensageField}/>
+                        className = {styles.chatBotMensageField}
+                        />
+
                         <button type="submit" onClick={nextChatBotAdress} >  ✅ </button>
+
                         </Form>        
                     )}
 

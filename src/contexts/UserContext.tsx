@@ -30,6 +30,7 @@ interface UserProviderProps {
 export const UserContext = createContext ( {} as UserContextData) 
 
 export function UserContextProvider ({children, ...rest}: UserProviderProps) {
+    
     const [isNameUser, setIsNameUser] = useState(false);
     const [isAdressUser, setIsAdressUser] = useState(false);
     const [isDateUser, setIsDateUser] = useState(false);

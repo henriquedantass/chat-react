@@ -1,12 +1,13 @@
 import styles from '../styles/components/ChatBot.module.css';
-import {Formik, Field, Form} from 'formik';
+import {Formik, Field, Form,} from 'formik';
 import { useState, useContext } from 'react';
 import {UserContext} from '../contexts/UserContext';
-
+import * as yup from 'yup';
 
 export function ChatBotName () {
 
-   
+    const schema = yup.string().required().matches(new RegExp("'/^[A-Za-z][A-Za-z'-]+([\ A-Za-z][A-Za-z'-]+)'"));
+
     const [name, setName] = useState();
 
     const {setUserName , nextChatBot } = useContext(UserContext);
@@ -14,8 +15,9 @@ export function ChatBotName () {
     
 
     function onSubmit () {
-        console.log(name)
-        setUserName (name);
+
+        setUserName(name);
+        nextChatBot();
         
     }
 
@@ -26,31 +28,35 @@ export function ChatBotName () {
                 <img src="icons/logo.svg" alt="logo"/>
                 <span>
                     Olá, eu sou o chat de testes da Workalove,
-                    tudo bem?   <br/> Para
+                    tudo bem?<br/> Para
                     começarmos, preciso
                     saber seu nome.
                 </span>
             </div>
 
             <div className = {styles.chatUserMensage}>
-                <Formik
-                    
+            <Formik
+
+                    validationSchema={schema}
                     initialValues= {{name: ''}}
                     onSubmit = {onSubmit} 
-                    render = {({}) => (
+
+                    render = {({errors, touched}) => (
 
                         <Form className = {styles.chatBotMensageForm}>
                         <Field 
+
                         name="name" 
                         type="text" 
-                        required
                         placeholder= "Digite seu nome" 
                         className = {styles.chatBotMensageField} 
                         onChange= {(event) => { setName(event.target.value) }}
                         value = {name}
-                        />
 
-                        <button type="submit" onClick={ nextChatBot }>  ✅ </button>
+                        />
+                            {errors.name && touched.name ? <div>{errors.name}</div> : null}
+
+                        <button type="submit">  ✅ </button>
                         </Form>        
                     )}
 
