@@ -14,8 +14,8 @@ export function ChatBotEmail () {
 
     function onSubmit () {
        
-        setUserEmail(email)
-        console.log(email)
+        setUserEmail(email);
+        nextChatBotEmail();
         
     }
 
@@ -46,7 +46,7 @@ export function ChatBotEmail () {
                         onChange= {(event) => { setEmail(event.target.value) }}
                         value={email}
                         className = {styles.chatBotMensageField}/>
-                        <button type="submit" onClick={nextChatBotEmail}>  ✅ </button>
+                        <button type="submit">  ✅ </button>
                   
                         </Form>        
                     )}

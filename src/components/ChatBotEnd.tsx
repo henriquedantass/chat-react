@@ -1,16 +1,22 @@
 import styles from '../styles/components/ChatBot.module.css';
 import { Formik, Field, Form } from 'formik';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { UserContext } from '../contexts/UserContext';
 import axios from 'axios';
 
 export function ChatBotEnd() {
 
-    const {name,email,data,adress} = useContext(UserContext);
+    const [avaliation, setAvaliation] = useState("");
+    const {name,email,data,adress,setUserAvaliation} = useContext(UserContext);
+    
   
+    
+
     async function onSubmit () {
-        await axios.post("https://60452e94c0194f00170bca91.mockapi.io/users", { name,email,address:adress, date:data})
-        console.log(name,email,data,adress)
+        
+        setUserAvaliation(avaliation)
+        await axios.post("https://60452e94c0194f00170bca91.mockapi.io/users", { name,email,address:adress, date:data,avaliation:avaliation})
+       
 
     }
 
@@ -42,7 +48,12 @@ export function ChatBotEnd() {
                     render={({ values }) => (
 
                         <Form className={styles.chatBotMensageForm}>
-                            <Field name="media" type="number"  className={styles.chatBotMensageField}  />
+                            <Field 
+                            name="avaliation" 
+                            type="number"
+                            onChange= {(event) => { setAvaliation(event.target.value) }}
+                            value={avaliation}
+                            className={styles.chatBotMensageField}  />
                             <button type="submit">📨</button>    
                         </Form>
                         

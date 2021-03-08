@@ -5,7 +5,7 @@ import { ChatBotEmail } from '../components/ChatBotEmail';
 import { ChatBotEnd } from '../components/ChatBotEnd';
 
 interface UserContextData {
-
+    avaliation: string;
     name: string;
     email: string;
     data: string;
@@ -14,6 +14,7 @@ interface UserContextData {
     setUserEmail: (email:string) => void;
     setUserAdress: (adress:string) => void;
     setUserData: (data:string) => void;
+    setUserAvaliation: (avaliation:string) => void;
     nextChatBot: () => void;
     nextChatBotAdress: () => void;
     nextChatBotDate: () => void;
@@ -40,6 +41,11 @@ export function UserContextProvider ({children, ...rest}: UserProviderProps) {
     const [email, setEmail] = useState("");
     const [data, setData] = useState("");
     const [adress, setAdress] = useState("");
+    const [avaliation, setAvaliation] = useState("");
+
+    function setUserAvaliation(avaliation:string) {
+        setAvaliation (avaliation);
+    }
 
     function setUserName (name:string) {
         setName (name);
@@ -74,7 +80,7 @@ export function UserContextProvider ({children, ...rest}: UserProviderProps) {
 
     return (
 
-        <UserContext.Provider value={{name,email,data,adress,setUserName,setUserEmail,setUserAdress,setUserData, nextChatBot, nextChatBotAdress,nextChatBotDate, nextChatBotEmail}}>
+        <UserContext.Provider value={{avaliation,name,email,data,adress,setUserAvaliation,setUserName,setUserEmail,setUserAdress,setUserData, nextChatBot, nextChatBotAdress,nextChatBotDate, nextChatBotEmail}}>
 
             {children}
 

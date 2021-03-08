@@ -7,12 +7,12 @@ export function ChatBotData () {
 
     const { nextChatBotDate } = useContext(UserContext);
     const [data, setData] = useState("");
-    const { setUserData , nextChatBotAdress } = useContext(UserContext);
+    const { setUserData } = useContext(UserContext);
     
     function onSubmit () {
         
-        setUserData(data)
-        console.log(data)
+        setUserData(data);
+        nextChatBotDate();
         
     }
 
@@ -45,7 +45,7 @@ export function ChatBotData () {
                         onChange= {(event) => { setData(event.target.value) }}
                         value= {data}
                         className = {styles.chatBotMensageField}/>
-                        <button type="submit" onClick={nextChatBotDate}>  ✅ </button>
+                        <button type="submit">  ✅ </button>
                         </Form>        
                     )}
 

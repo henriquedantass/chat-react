@@ -11,8 +11,8 @@ export function ChatBotAdress () {
     const { setUserAdress , nextChatBotAdress } = useContext(UserContext);
 
     function onSubmit () {
-       setUserAdress(adress)
-       console.log(adress)
+       setUserAdress(adress);
+       nextChatBotAdress();
     }
 
 
@@ -45,7 +45,7 @@ export function ChatBotAdress () {
                         className = {styles.chatBotMensageField}
                         />
 
-                        <button type="submit" onClick={nextChatBotAdress} >  ✅ </button>
+                        <button type="submit" >  ✅ </button>
 
                         </Form>        
                     )}
