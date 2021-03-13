@@ -27,7 +27,7 @@ export function ChatBotName () {
             <div className = {styles.chatBotMensage}>
                 <img src="icons/logo.svg" alt="logo"/>
                 <span>
-                    Olá, eu sou o chat de testes da Workalove,
+                    Olá, eu sou o chat de testes,
                     tudo bem?<br/> Para
                     começarmos, preciso
                     saber seu nome.
